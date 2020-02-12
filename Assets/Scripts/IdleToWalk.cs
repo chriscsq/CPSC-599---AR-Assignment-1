@@ -8,7 +8,7 @@ public class IdleToWalk : MonoBehaviour
     public float InputX;
     public float InputY;
     public float speed = 50;
-
+    public int condition = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,28 +23,42 @@ public class IdleToWalk : MonoBehaviour
         InputY = Input.GetAxis("Vertical");
         animator.SetFloat("InputX", InputX);
         animator.SetFloat("InputY", InputY);
+
+        // Turn
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up * speed * Time.deltaTime);
-
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(-Vector3.up * speed * Time.deltaTime);
         }
+
+        // Attack
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetInteger("Condition", 1);
+            animator.Play("swipe");
+        }
     }
 
 
-
-
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("buff"))
+        Debug.Log("entered");
+        if (other.gameObject.CompareTag("buff"))
         {
-            Debug.Log("entered");
-            collision.gameObject.SetActive(false);
+            animator.Play("swipe");
+            StartCoroutine(SwingTimer(other));
         }
+    }
+    
+    IEnumerator SwingTimer(Collider other)
+    {
+        yield return new WaitForSeconds(1.5f);
+        other.gameObject.SetActive(false);
+
     }
 
 }
