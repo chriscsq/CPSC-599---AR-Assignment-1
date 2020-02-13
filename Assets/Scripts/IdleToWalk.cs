@@ -9,11 +9,14 @@ public class IdleToWalk : MonoBehaviour
     public float InputY;
     public float speed = 50;
     public int condition = 0;
+    int buffcount = 0;
+    GameObject finalcore;
     // Start is called before the first frame update
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
-
+        finalcore = GameObject.FindGameObjectWithTag("final-core");
+        finalcore.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,6 +44,11 @@ public class IdleToWalk : MonoBehaviour
             animator.SetInteger("Condition", 1);
             animator.Play("swipe");
         }
+
+        if (buffcount > 3)
+        {
+            finalcore.SetActive(true);
+        }
     }
 
 
@@ -51,6 +59,14 @@ public class IdleToWalk : MonoBehaviour
         {
             animator.Play("swipe");
             StartCoroutine(SwingTimer(other));
+            buffcount++;
+            Debug.Log("buffcount is at: " + buffcount);
+
+        }
+
+        if (other.gameObject.CompareTag("final-core"))
+        {
+            Debug.Log("game over");
         }
     }
     
