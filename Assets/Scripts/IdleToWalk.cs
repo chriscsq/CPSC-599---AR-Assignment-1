@@ -41,11 +41,10 @@ public class IdleToWalk : MonoBehaviour
         // Attack
         if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetInteger("Condition", 1);
             animator.Play("swipe");
         }
 
-        if (buffcount > 3)
+        if (buffcount > 2)
         {
             finalcore.SetActive(true);
         }
@@ -54,22 +53,36 @@ public class IdleToWalk : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered");
         if (other.gameObject.CompareTag("buff"))
         {
             animator.Play("swipe");
             StartCoroutine(SwingTimer(other));
             buffcount++;
-            Debug.Log("buffcount is at: " + buffcount);
-
         }
 
+        
         if (other.gameObject.CompareTag("final-core"))
         {
-            Debug.Log("game over");
+            buffcount = 0;
+            finalcore.gameObject.SetActive(false);
+            transform.localScale *= 2f;
+            animator.Play("jump-atk");
+            /*
+            while (transform.localScale.x < .8)
+            {
+                Scale(transform.localScale.x);
+            }
+            */
         }
     }
-    
+    /*
+    IEnumerator Scale(float x)
+    {
+        //yield return new WaitForSeconds(.1f);
+        transform.localScale *= 1.2f;
+
+    }
+    */
     IEnumerator SwingTimer(Collider other)
     {
         yield return new WaitForSeconds(1.5f);
