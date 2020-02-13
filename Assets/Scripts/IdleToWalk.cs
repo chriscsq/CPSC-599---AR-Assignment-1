@@ -63,6 +63,7 @@ public class IdleToWalk : MonoBehaviour
         
         if (other.gameObject.CompareTag("final-core"))
         {
+            Debug.Log("infinite loop");
             buffcount = 0;
             finalcore.gameObject.SetActive(false);
             transform.localScale *= 2f;
