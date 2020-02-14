@@ -4,6 +4,7 @@ Using Unity3D and Vuforia, created a simple augmented reality application.
 #### Requirements
 
 Unity Version: 2019.3.0f6
+Required Image Target: Default Vuforia library (VuforiaMars_Images) -  "Fissure" target
 
 #### Objective
 
