@@ -53,41 +53,29 @@ public class IdleToWalk : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Collision with other buffs
         if (other.gameObject.CompareTag("buff"))
         {
             animator.Play("swipe");
             StartCoroutine(SwingTimer(other));
-            buffcount++;
         }
 
-        
+        // Collision with final buff
         if (other.gameObject.CompareTag("final-core"))
         {
-            Debug.Log("infinite loop");
             buffcount = 0;
             finalcore.gameObject.SetActive(false);
             transform.localScale *= 2f;
             animator.Play("jump-atk");
-            /*
-            while (transform.localScale.x < .8)
-            {
-                Scale(transform.localScale.x);
-            }
-            */
         }
     }
-    /*
-    IEnumerator Scale(float x)
-    {
-        //yield return new WaitForSeconds(.1f);
-        transform.localScale *= 1.2f;
 
-    }
-    */
     IEnumerator SwingTimer(Collider other)
     {
+        Debug.Log("buffcounter: " + buffcount);
         yield return new WaitForSeconds(1.5f);
         other.gameObject.SetActive(false);
+        buffcount++;
 
     }
 
