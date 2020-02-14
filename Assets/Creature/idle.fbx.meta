@@ -8,25 +8,30 @@ ModelImporter:
     second: Mutant Idle
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAW_MAT
+    second: {fileID: 2100000, guid: d4e9e0c9f9fe6e94c81d6206758db6bc, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MAW_diffuse
-    second: {fileID: 2800000, guid: 636c020bf4c7e6c45b0edd2f4f0eadeb, type: 3}
+    second: {fileID: 2800000, guid: b5c805fa433ecbe478d617887c8614ea, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MAW_glow
-    second: {fileID: 2800000, guid: 0df36e28a592e7049a6be1a2d598aca5, type: 3}
+    second: {fileID: 2800000, guid: a7bd63641e8b302429e32793e071914b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MAW_normal
-    second: {fileID: 2800000, guid: 56bd2ac6da805c241abb273f13e62797, type: 3}
+    second: {fileID: 2800000, guid: 5786e61885cab0e49b9faa5e0190d37f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: maria_specular
-    second: {fileID: 2800000, guid: 6418b675f304fad46acf83325350b116, type: 3}
+    second: {fileID: 2800000, guid: 36c4cd8c9cd8bf34ea131114eadff9db, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

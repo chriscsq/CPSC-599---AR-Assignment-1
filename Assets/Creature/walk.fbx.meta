@@ -9,7 +9,32 @@ ModelImporter:
   - first:
       74: 5610870729361633106
     second: Mutant Walking
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAW_MAT
+    second: {fileID: 2100000, guid: 2bd4b574c759d0647b5958e62db04a21, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MAW_diffuse
+    second: {fileID: 2800000, guid: 8797dcd6599708d4e93e94a0acca3a79, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MAW_glow
+    second: {fileID: 2800000, guid: 082d5d82b0ab256479abf603c9f290a5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MAW_normal
+    second: {fileID: 2800000, guid: def5877974cca894aaabffe06dba77cf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: maria_specular
+    second: {fileID: 2800000, guid: d95c5e00b1ba44e44881b0e8d3d2944c, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
